@@ -11,8 +11,12 @@ let image=document.querySelector(".weather_image")
 const data=async (city)=>{
     console.log("getting data....");
     let response= await fetch(url+`&appid=${api}&q=${city}`);
-    // console.log(response)
-    let output=await response.json()
+    if(response.status==404){
+        document.querySelector(".error").style.display='block'
+    }
+    else{
+
+        let output=await response.json()
     console.log(output)
     temperature.innerText=Math.round(output.main.temp)+"°c"
     city_text.innerText=output.name
@@ -38,9 +42,10 @@ const data=async (city)=>{
         image.src="https://img.icons8.com/?size=100&id=19542&format=png&color=000000"
 
     }
-
+     document.querySelector(".error").style.display='none'
+    }
+    // console.log(response)
     
-
    
 }
 

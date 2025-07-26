@@ -76,3 +76,10 @@ cursor: pointer;}
     gap:6rem;
     margin-top: 50px;
 }
+.error  {
+    color: #f4f5fb;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 10px;
+    display: none;
+    }
